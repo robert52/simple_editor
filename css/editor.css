@@ -2,3 +2,30 @@
   width: 1180px;
   margin: 0 auto;
 }
+
+.editor .editor-content,
+.editor .editor-content:focus {
+  border: none;
+  outline: none;
+}
+
+.editor button {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 25px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #333333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #eeeeee;
+  border: 0;
+  border-radius: 0;
+  *margin-left: .3em;
+}

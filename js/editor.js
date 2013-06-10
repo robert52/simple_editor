@@ -8,13 +8,19 @@ window.SimpleEditor = (function() {
     //get the editor element
     this.element = document.getElementById(options.holder);
 
+    this.editorContent = this.element.querySelector('.editor-content');
+    var initialPara = document.createElement('p');
+    initialPara.innerHTML = '<br>';
+
+    this.editorContent.appendChild(initialPara);
+
     //bind event handlers for the editor
     bindHandlers(this);
   }
 
   function bindHandlers(editor) {
     var d = editor.element;
-    var editorContent = editor.element.querySelector('.editor-cotent');
+    var editorContent = d.querySelector('.editor-content');;
 
     //set the default element to paragraph when you press enter
     document.execCommand('defaultParagraphSeparator', false, 'p');
