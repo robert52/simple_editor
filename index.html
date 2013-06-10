@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Editor</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/editor.css">
+  </head>
+  <body>
+
+    <section id="simple-editor" class="editor">
+      <header class="editor-header">
+        <button data-action="add-heading-one">heading 1</button>
+        <button data-action="add-heading-two">heading 2</button>
+        <button data-action="add-heading-three">heading 3</button>
+        <button data-action="add-paragraph">paragraph</button>
+      </header>
+      <section class="editor-cotent" contenteditable></section>
+    </section>
+
+    <!-- le javascript -->
+    <script src="js/editor.js"></script>
+    <script>
+      var editor = new SimpleEditor({
+        holder: 'simple-editor'
+      });
+    </script>
+  </body>
+</html>
