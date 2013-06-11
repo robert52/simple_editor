@@ -18,6 +18,11 @@ window.SimpleEditor = (function() {
     bindHandlers(this);
   }
 
+  function doCommand(command, value) {
+    value = value || null;
+    document.execCommand(command, false, value);
+  }
+
   function bindHandlers(editor) {
     var d = editor.element;
     var editorContent = d.querySelector('.editor-content');;
@@ -34,19 +39,35 @@ window.SimpleEditor = (function() {
     }, false);
 
     d.querySelector('[data-action="add-heading-one"]').addEventListener('click', function(event) {
-      //console.log('add heading one: ', event);
-      var h1 = document.createElement('h1');
-      h1.innerHTML = 'Your cool title here';
-
-      editorContent.appendChild(h1);
+      doCommand('formatBlock', 'H1');
     }, false);
 
     d.querySelector('[data-action="add-heading-two"]').addEventListener('click', function(event) {
-      console.log('add heading one: ', event);
+      doCommand('formatBlock', 'H2');
     }, false);
 
     d.querySelector('[data-action="add-heading-three"]').addEventListener('click', function(event) {
-      console.log('add heading one: ', event);
+      doCommand('formatBlock', 'H3');
+    }, false);
+
+    d.querySelector('[data-action="bold-text"]').addEventListener('click', function(event) {
+      doCommand('bold');
+    }, false);
+
+    d.querySelector('[data-action="italic-text"]').addEventListener('click', function(event) {
+      doCommand('italic');
+    }, false);
+
+    d.querySelector('[data-action="clear-formating"]').addEventListener('click', function(event) {
+      doCommand('removeFormat');
+    }, false);
+
+    d.querySelector('[data-action="undo"]').addEventListener('click', function(event) {
+      doCommand('undo');
+    }, false);
+
+    d.querySelector('[data-action="redo"]').addEventListener('click', function(event) {
+      doCommand('redo');
     }, false);
   }
 
